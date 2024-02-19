@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 05, 2024 at 10:40 PM
+-- Generation Time: Feb 19, 2024 at 10:30 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -37,7 +37,7 @@ CREATE TABLE `adminrecord` (
 --
 
 INSERT INTO `adminrecord` (`AdminID`, `Password`) VALUES
-('1', 'xxx'),
+('1', '123'),
 ('ali ali', 'ali12'),
 ('mustafa1', '123');
 
@@ -63,6 +63,7 @@ INSERT INTO `bookrecord` (`BookID`, `BookName`, `Author`, `Publisher`) VALUES
 ('2', 'c++', 'mahamed ali', 'dar elhikma'),
 ('3', '#C', 'jamal', 'kamal'),
 ('4', 'Os', 'khaled ahmed', 'dar elhikma'),
+('40', 'test', 'test', 'test'),
 ('5', 'python', 'walid ahmed', 'dar elhikma');
 
 -- --------------------------------------------------------
@@ -95,7 +96,7 @@ CREATE TABLE `userrecord` (
 --
 
 INSERT INTO `userrecord` (`UserID`, `UserName`, `Password`, `BookID`, `fines`) VALUES
-('456', 'mahamed', '741', '2', '15');
+('456', 'mahamed', '741', '2', '10');
 
 --
 -- Indexes for dumped tables
