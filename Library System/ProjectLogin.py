@@ -2,7 +2,7 @@ import sys
 import MainMenu
 import Tables
 import mysql.connector
-
+import connect 
 def login_to_admin() : # Admin Login
     print("\n")
     print("|                       ~~  College of Science Library  ~~                   |")

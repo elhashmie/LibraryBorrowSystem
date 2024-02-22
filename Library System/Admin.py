@@ -1,6 +1,7 @@
 import mysql.connector
 import Tables
-                 
+import connect  
+        
 def displayAdmin():
     print()
     print("Admin Records: \n")
@@ -82,4 +83,4 @@ def updateAdmin():
 
 mydb=mysql.connector.connect(host="localhost",user="root",passwd="",database="Library")
 mycursor=mydb.cursor()
-     
+ 

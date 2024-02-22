@@ -1,6 +1,7 @@
 import mysql.connector
 import Tables
-        
+import connect        
+ 
       
 def displayUser():
     print()
@@ -29,8 +30,8 @@ def insertUser():
         UserID=input(" Enter UserID: ")
         UserName=input(" Enter User Name: ")
         Password=input(" Enter Password to be Set: ")
-        data=(UserID, UserName, Password,None)
-        query="INSERT INTO UserRecord VALUES (%s, %s, %s,%s)"
+        data=(UserID, UserName, Password,None,None)
+        query="INSERT INTO UserRecord VALUES (%s, %s, %s,%s,%s)"
         mycursor.execute(query,data)
         mydb.commit()
         print()
@@ -99,8 +100,6 @@ def updateUserFine():
         print()
         data=()
         UserID=input(" Enter User ID for whose Fine need to be updated : ")
-        UserName=input(" Enter Updated User Name : ")
-        Password=input(" Enter Updated Password : ")
         fines=input("Enter The Fine : ")
         query="UPDATE UserRecord SET fines=%s WHERE UserID=%s"
         data=(fines,UserID)
