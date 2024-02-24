@@ -19,7 +19,7 @@ def login_to_admin() : # Admin Login
         if result:
             temp,=result 
             if temp==password: 
-                print("\n\t\t    WELCOME {0} to THE BOOK WORM  \n ".format("\'"+AdminID+"\'"))
+                print("\n\t\t    WELCOME {0} to THE College of science Libaray  \n ".format("\'"+AdminID+"\'"))
                 MainMenu.Adminmenu()
                 break
             else :
@@ -73,7 +73,7 @@ def login_to_user(): #User login
             if result:
                 temp,=result #coverting tuple to integer fro comparing password
                 if temp==password: # authenticated usernames and passwords
-                    print("\n\t\t    WELCOME {0} to THE BOOK WORM  \n ".format("\'"+UserID+"\'"))
+                    print("\n\t\t    WELCOME {0} to THE College of science Libaray  \n ".format("\'"+UserID+"\'"))
                     MainMenu.Usermenu()
                     break
                 else :

@@ -93,20 +93,6 @@ def AdminManagement():
             print("Wrong Choice......Enter Your Choice again")
             x=input("Press Enter to continue")
 
-def FeedbackTable():
-    print()
-    print("Feeback and Rating Table: \n")
-    mycursor.execute("SELECT * from Feedback")
-    records=mycursor.fetchall()
-    row_no=0
-    for rows in records :
-        row_no+=1
-        print("******************************","Row no.",row_no,"******************************")
-        print("\t             Feedbacks: ", rows[0])
-        print("\t      Rating out of 10: ", rows[1])
-        print()  
-
-
 
 
 # User Menu Operations 
@@ -116,9 +102,9 @@ def BookCentre():
         print("\t\t\t Book Centre \n")
         print("==============================================================")
         print("1. List of all Books ")
-        print("2. Issue Book ")
+        print("2. Borrow Book ")
         print("3. Display Issued Book Records ")
-        print("4. Return Issued Book ")
+        print("4. Return  Book ")
         print("5. Return to Main Menu ")
         print("===============================================================")
         choice=int(input("Enter Choice between 1 to 4-------> : "))
@@ -135,21 +121,5 @@ def BookCentre():
         else:
             print("Wrong Choice......Enter Your Choice again")
             x=input("Press Enter to continue")
-
-def Feedback():
-    while True:
-        data=()
-        print("\t\t\t Feedback and Rating\n")
-        print("==============================================================")
-        Feedback=input("Enter your Review about our Library and tell us how can we improve to make you happy!!:))---->")
-        Ratings=input("Rate us out of 10:")
-        data=(Feedback,Ratings)
-        query="INSERT INTO Feedback VALUES (%s, %s)"
-        mycursor.execute(query,data)
-        mydb.commit()
-        print()
-        print("Thank you for your valuable Feedback")
-        return      
-
 mydb=mysql.connector.connect(host="localhost",user="root",passwd="",database="Library")
 mycursor=mydb.cursor()

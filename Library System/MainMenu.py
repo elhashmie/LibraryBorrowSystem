@@ -19,7 +19,7 @@ def Adminmenu() :
         #elif choice==4:
          #   Operations.FeedbackTable()
         elif choice==5:
-            print("Thanks for visiting our Library:))")
+            print("Thanks for visiting our Library")
             print("Logged out of the system")
             break
         else:
@@ -32,8 +32,7 @@ def Usermenu() :
         print("\t\t\t User Menu \n")
         print("==============================================================")
         print("1. Book Centre")
-        #print("2. Feedback and Ratings")
-        print("3. Logout ")
+        print("2. Logout ")
         print("===============================================================")
         choice=int(input("Enter Choice between 1 to 3-------> : "))
         if choice==1:
@@ -41,7 +40,7 @@ def Usermenu() :
         elif choice==2:
             Operations.Feedback()
         elif choice==3:
-            print("Thanks for visiting our Library:))")
+            print("Thanks for visiting our Library")
             print("Logged out of the system")
             break
         else:
