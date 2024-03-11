@@ -1,6 +1,5 @@
 import mysql.connector
-import connect 
-  
+
 mydb=mysql.connector.connect(host="localhost",user="root",passwd="")
 mycursor=mydb.cursor()
 mycursor.execute("CREATE DATABASE IF NOT EXISTS Library")
@@ -46,12 +45,12 @@ else: #if Table doesn't exists then it will be created
     mydb.commit()
     
     
-mycursor.execute("SHOW TABLES LIKE 'Feedback' ")
+mycursor.execute("SHOW TABLES LIKE 'FineRecord' ")
 result=mycursor.fetchone()
 if result : 
     pass
 else : #if Table doesn't exists then it will be created
-    mycursor.execute("""CREATE TABLE Feedback(Feedback varchar(100) PRIMARY KEY, Rating varchar(10))""")
+    mycursor.execute("""CREATE TABLE FineRecord(fineID varchar(100) PRIMARY KEY, UserID varchar(10),FOREIGN KEY (UserID) REFERENCES UserRecord(UserID))""")
 
 
     

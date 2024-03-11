@@ -1,7 +1,7 @@
 import mysql.connector
 import Tables
-import connect  
-        
+import connection
+#---------------------------------------------------------------------------------------------------------                 
 def displayAdmin():
     print()
     print("Admin Records: \n")
@@ -16,7 +16,7 @@ def displayAdmin():
         print()
     x=input("Press Enter to continue")
     return
-         
+#---------------------------------------------------------------------------------------------------------         
 def insertAdmin():
     while True :
         data=()
@@ -32,7 +32,7 @@ def insertAdmin():
         if ch=="no" or ch=="No" or ch=="NO":
             break
     return
-         
+#---------------------------------------------------------------------------------------------------------         
 def deleteAdmin():
     while True:
         print()
@@ -43,7 +43,7 @@ def deleteAdmin():
         if ch=="no" or ch=="No" or ch=="NO":
             break
     return
-     
+#---------------------------------------------------------------------------------------------------------     
 def searchAdmin():
     while True:
         print()
@@ -65,7 +65,7 @@ def searchAdmin():
         if ch=="no" or ch=="No" or ch=="NO":
             break
     return
- 
+#--------------------------------------------------------------------------------------------------------- 
 def updateAdmin():
     while True:
         print()
@@ -80,7 +80,7 @@ def updateAdmin():
         if ch=="no" or ch=="No" or ch=="NO":
             break
     return
-
+#--------------------------------------------------------------------------------------------------------- 
 mydb=mysql.connector.connect(host="localhost",user="root",passwd="",database="Library")
 mycursor=mydb.cursor()
- 
+#connect.create_connection()    

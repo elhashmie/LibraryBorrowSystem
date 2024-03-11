@@ -1,8 +1,8 @@
 import mysql.connector
 import Tables
-import connect 
-
-
+import connection
+#----------------------------------------------------------------------------------------
+#Admin Operation on Books
 def displayBook():
     print()
     print("Book Records: \n")
@@ -23,7 +23,7 @@ def displayBook():
         print()
     x=input("Press Enter to return to the User Menu")
     return
-        
+#----------------------------------------------------------------------------------------        
 def insertBook():
     while True :
         data=()
@@ -42,7 +42,7 @@ def insertBook():
             break
     return
 
-        
+#----------------------------------------------------------------------------------------        
 def deleteBook():
     while True:
         print()
@@ -54,7 +54,7 @@ def deleteBook():
             break
     return
 
-    
+#----------------------------------------------------------------------------------------    
 def searchBook():
     while True:
         print()
@@ -84,7 +84,7 @@ def searchBook():
             break
     return
 
-
+#----------------------------------------------------------------------------------------
 def updateBook():
     while True:
         print()
@@ -102,10 +102,10 @@ def updateBook():
         if ch=="no" or ch=="No" or ch=="NO":
             break
     return
-
-
-
-   #user
+#----------------------------------------------------------------------------------------
+#----------------------------------------------------------------------------------------
+#----------------------------------------------------------------------------------------
+#User Operation on Books
 def BookList():
     print()
     print("Book Records: \n")
@@ -164,7 +164,7 @@ def IssueBook():
         print("Book Already Issued, Kindly Return That first")
         x=input("Press any key to return to the User Menu")
         return    
-
+#----------------------------------------------------------------------------------------
 def ShowIssuedBook():
     print()
     UserID=input("Enter yor UserID:")
@@ -189,7 +189,7 @@ def ShowIssuedBook():
         print("No Book Issued")
         x=input("Press Enter to return to the User Menu")
         return  
-
+#----------------------------------------------------------------------------------------
 def returnBook():
     print()
     data=()
@@ -202,7 +202,8 @@ def returnBook():
     print("Return Successfull")
     x=input("Press Enter to return to the User Menu")
     return   
-
+#----------------------------------------------------------------------------------------
 
 mydb=mysql.connector.connect(host="localhost",user="root",passwd="",database="Library")
 mycursor=mydb.cursor()
+#connect.create_connection()

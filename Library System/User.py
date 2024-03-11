@@ -1,8 +1,7 @@
 import mysql.connector
 import Tables
-import connect        
- 
-      
+import connection   
+#--------------------------------------------------------------------------------------------------------------------------------        
 def displayUser():
     print()
     print("User Records: \n")
@@ -22,24 +21,24 @@ def displayUser():
         print()
     x=input("Press any key to return to the User Menu")
     return
-             
+#--------------------------------------------------------------------------------------------------------------------------------             
 def insertUser():
     while True :
         data=()
         print()
-        UserID=input(" Enter UserID: ")
-        UserName=input(" Enter User Name: ")
-        Password=input(" Enter Password to be Set: ")
-        data=(UserID, UserName, Password,None,None)
-        query="INSERT INTO UserRecord VALUES (%s, %s, %s,%s,%s)"
+        UserID=input("Enter AdminID: ")
+        Password=input(" Enter Password to be set: ")
+        UserName=input("Enter UserName: ")
+        query="INSERT INTO UserRecord VALUES (%s,%s,%s,null)"
+        data=(UserID,UserName,Password)
         mycursor.execute(query,data)
         mydb.commit()
         print()
-        ch=input("Do you wish to do add more Users?[Yes/No] : ")
+        ch=input("Do you wish to do add more Administrators?[Yes/No] : ")
         if ch=="no" or ch=="No" or ch=="NO":
             break
     return
-            
+#--------------------------------------------------------------------------------------------------------------------------------             
 def deleteUser():
     while True:
         print()
@@ -50,7 +49,7 @@ def deleteUser():
         if ch=="no" or ch=="No" or ch=="NO":
             break
     return
-         
+#--------------------------------------------------------------------------------------------------------------------------------         
 def searchUser():
     while True:
         print()
@@ -78,7 +77,7 @@ def searchUser():
         if ch=="no" or ch=="No" or ch=="NO":
             break
     return
-    
+#--------------------------------------------------------------------------------------------------------------------------------     
 def updateUser():
     while True:
         print()
@@ -95,13 +94,29 @@ def updateUser():
         if ch=="no" or ch=="No" or ch=="NO":
             break
     return
+def addUserFine():
+    while True :
+        data=()
+        print()
+        UserID=input(" Enter UserID: ")
+        fine=input(" Enter Password to be Set: ")
+        data=(UserID,fine)
+        query="INSERT INTO fine VALUES (%s,%s)"
+        mycursor.execute(query,data)
+        mydb.commit()
+        print()
+        ch=input("Do you wish to do add more Users?[Yes/No] : ")
+        if ch=="no" or ch=="No" or ch=="NO":
+            break
+    
+    return   
 def updateUserFine():
     while True:
         print()
         data=()
         UserID=input(" Enter User ID for whose Fine need to be updated : ")
         fines=input("Enter The Fine : ")
-        query="UPDATE UserRecord SET fines=%s WHERE UserID=%s"
+        query="UPDATE fine SET fine_value=%s WHERE UserID=%s"
         data=(fines,UserID)
         mycursor.execute(query,data)
         mydb.commit()
@@ -110,8 +125,8 @@ def updateUserFine():
         if ch=="no" or ch=="No" or ch=="NO":
             break
     return   
-    
+#--------------------------------------------------------------------------------------------------------------------------------                  
 mydb=mysql.connector.connect(host="localhost",user="root",passwd="",database="Library")
 mycursor=mydb.cursor()
-
+#connect.create_connection()
         

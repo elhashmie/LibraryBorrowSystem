@@ -17,8 +17,7 @@ def loginadmin(c,d):
             return 0
 def loginuser(c,d):
         UserID=c
-        password=d
-        
+        password=d 
         print()
         mycursor.execute("SELECT Password from UserRecord where UserID={0}".format("\'"+UserID+"\'"))
         result=mycursor.fetchone()

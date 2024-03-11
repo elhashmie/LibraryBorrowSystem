@@ -3,7 +3,8 @@ import User
 import Admin
 import Tables
 import mysql.connector
-
+import connection
+#----------------------------------------------------------------------------------------
 #Operations for Admin Menu
 
 def BookManagement():
@@ -33,7 +34,7 @@ def BookManagement():
         else:
             print("Wrong Choice......Enter Your Choice again")
             x=input("Press Enter to continue")
-
+#----------------------------------------------------------------------------------------
 def UserManagement():
     while True:
         print("\t\t\t User Record Management\n")
@@ -43,10 +44,9 @@ def UserManagement():
         print("3. Search User Record")
         print("4. Delete User Record")
         print("5. Update User Record")
-        print("6. Update Fine Record")
-        print("7. Return to Main Menu")
+        print("6. Return to Main Menu")
         print("===============================================================")
-        choice=int(input("Enter Choice between 1 to 7-------> : "))
+        choice=int(input("Enter Choice between 1 to 6-------> : "))
         if choice==1:
             User.insertUser()
         elif choice==2:
@@ -58,13 +58,11 @@ def UserManagement():
         elif choice==5:
             User.updateUser()
         elif choice==6:
-            User.updateUserFine()    
-        elif choice==7:
             return
         else:
             print("Wrong Choice......Enter Your Choice again")
             x=input("Press Enter to continue")
-
+#----------------------------------------------------------------------------------------
 def AdminManagement():
     while True:
         print("\t\t\t Admin Record Management\n")
@@ -93,7 +91,7 @@ def AdminManagement():
             print("Wrong Choice......Enter Your Choice again")
             x=input("Press Enter to continue")
 
-
+#----------------------------------------------------------------------------------------
 
 # User Menu Operations 
 
@@ -102,9 +100,9 @@ def BookCentre():
         print("\t\t\t Book Centre \n")
         print("==============================================================")
         print("1. List of all Books ")
-        print("2. Borrow Book ")
-        print("3. Display Issued Book Records ")
-        print("4. Return  Book ")
+        print("2. Issue Book ")
+        print("3. Display Borrowed Book Records ")
+        print("4. Return Borrowed Book ")
         print("5. Return to Main Menu ")
         print("===============================================================")
         choice=int(input("Enter Choice between 1 to 4-------> : "))
@@ -121,5 +119,7 @@ def BookCentre():
         else:
             print("Wrong Choice......Enter Your Choice again")
             x=input("Press Enter to continue")
+#----------------------------------------------------------------------------------------
 mydb=mysql.connector.connect(host="localhost",user="root",passwd="",database="Library")
 mycursor=mydb.cursor()
+#connect.create_connection()

@@ -1,5 +1,4 @@
 import mysql.connector
-
 class DatabaseConnection:
     _instance = None
 

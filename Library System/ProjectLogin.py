@@ -2,14 +2,15 @@ import sys
 import MainMenu
 import Tables
 import mysql.connector
-import connect 
+import connection
+#---------------------------------------------------------------------------------------------------------
 def login_to_admin() : # Admin Login
     print("\n")
     print("|                       ~~  College of Science Library  ~~                   |")
     print()
-    print("                              LOGIN  TO YOUR ACCOUNT                                    \n")
+    print("                              LOGIN                                     \n")
     print("WARNING : Only three Attempts to login")
-    for attempts in range(0,3) : # Only three Attempts to login then system will switch off 
+    for attempts in range(0,3) :  
         AdminID=input("\t  Enter AdminID : ")   
         password=input("\t  Enter Password : ")
         
@@ -19,7 +20,7 @@ def login_to_admin() : # Admin Login
         if result:
             temp,=result 
             if temp==password: 
-                print("\n\t\t    WELCOME {0} to THE College of science Libaray  \n ".format("\'"+AdminID+"\'"))
+                print("\n\t\t    WELCOME {0}   \n ".format("\'"+AdminID+"\'"))
                 MainMenu.Adminmenu()
                 break
             else :
@@ -36,7 +37,7 @@ def login_to_admin() : # Admin Login
         print("\t Try again later \n ")
         print("\t System off  \n ")
         print("*---------------------------------------------------------------------------------* \n")
-
+#---------------------------------------------------------------------------------------------------------
 def login_to_user(): #User login
     
     print("\n")
@@ -64,16 +65,17 @@ def login_to_user(): #User login
 
     elif ch==2:
         print("WARNING : Only three Attempts to login at a time")
-        for attempts in range(0,3) :  # Only three Attempts to login then system will switch off 
+        for attempts in range(0,3) :  
             UserID=input("\t  Enter UserID : ")   
+                                                  
             password=input("\t  Enter Password : ")
             print()
             mycursor.execute("SELECT Password from UserRecord where UserID={0}".format("\'"+UserID+"\'"))
             result=mycursor.fetchone()
             if result:
-                temp,=result #coverting tuple to integer fro comparing password
-                if temp==password: # authenticated usernames and passwords
-                    print("\n\t\t    WELCOME {0} to THE College of science Libaray  \n ".format("\'"+UserID+"\'"))
+                temp,=result 
+                if temp==password: 
+                    print("\n\t\t    WELCOME {0}   \n ".format("\'"+UserID+"\'"))
                     MainMenu.Usermenu()
                     break
                 else :
@@ -93,11 +95,11 @@ def login_to_user(): #User login
     else:
         print("Enter valid choice")
         login_to_user()
-       
+#---------------------------------------------------------------------------------------------------------       
 def menu() :
     print("\n\n")
     print("|*************************************************************************************|")
-    print("|                         College of Science Library                    |")
+    print("|                       ~~  College of Science Library  ~~                   |")
     print("|*************************************************************************************|")
     print("\n")
     print("                 ======================= MENU =======================                \n")
@@ -115,7 +117,7 @@ def menu() :
             login_to_user()
             break
         elif ch== "3" :
-            cancel_request = input(" Do You Want TO Exit ? [yes/no ] :  ")
+            cancel_request = input(" DO YOU WISH TO EXIT... [yes/no ] :  ")
             if cancel_request in ["yes","Yes","YES"] :
                 sys.exit()
             break
@@ -123,8 +125,7 @@ def menu() :
             print(" INVALID COMMAND ")
             print(" RETRY \n")
             continue
-
+#--------------------------------------------------------------------------------------------------------- 
 mydb=mysql.connector.connect(host="localhost",user="root",passwd="",database="Library")
 mycursor=mydb.cursor()
-
 menu()
